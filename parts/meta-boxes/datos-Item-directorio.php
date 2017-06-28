@@ -405,16 +405,14 @@ piklist('field', array(
     )
 );
 
-piklist(
-    'field', 
-    array(
-        'type' => 'text'
-        ,'field' => 'imgd_dir_observaciones'
-        ,'description' => __('Todo lo que no se pudo agregar en loas campos Anteriores', 'imgd')
-        ,'value' => ''
-        ,'label' => __('Observaciones', 'imgd')
-        ,'attributes' => array(
-                'class' => 'regular-text'
-        )
+
+piklist('field', array(
+    'type' => 'textarea'
+    ,'field' => 'imgd_dir_observaciones'
+    ,'label' => __('Observaciones', 'imgd')
+    , 'attributes' => array(
+      'rows' => 10,
+      'cols' => 50,
+      'class' => 'large-text'
     )
-);
+  ));
