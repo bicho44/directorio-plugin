@@ -35,6 +35,20 @@ piklist (
     )
 );
 
+piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_habitaciones_accesibles_desc'
+        ,'description' => __('Descripción de las Habitaciones Accesibles', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
 piklist (
     'field',
     array(
@@ -51,73 +65,356 @@ piklist (
 );
 
 piklist('field', array(
-    'type' => 'checkbox',
+    'type' => 'radio',
     'field' => 'imgd_dir_rampa',
     'label' => __('Rampa y puerta de entrada','imgd'),
-    'value' => 'no', // set default value
+    'value' => 0, // set default value
     'choices' => array(
-      'no' => __('No', 'imgd')
-      ,'si' => __('Si', 'imgd')
+        0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
     )
   ));
 
-/*
-* 
-» Hall de ingreso: Espacios libres de obstáculos, anchos, señalizaciones en braille, sonoras y lumínicas.
-» Mostradores: Altura adaptada a personas en silla de ruedas.
-» Escaleras: Ancho y alto adecuado de los escalones.
-» Espacios comunes: Libre de obstáculos, Rampas alternativas dentro del establecimiento, Puertas de apertura fácil, ancho apropiado.
-» Sanitarios públicos: Símbolo internacional, Reserva mínima, Suelo antideslizante, Grifería a presión, palanca o de fácil uso.
-» Ascensores: Información visual, Espacio libre en frente a la puerta, Altura de la botonera, Botones en braille o con relieve.
-» Pasillos: Ancho apropiado, Suelo antideslizante, Libre de obstáculos, Suelo de alfombras.
-» Habitaciones accesibles: Reserva mínima, Espacio libre de giro, Ancho de acceso lateral a la cama, Cajones y repisas accesibles, Pisos sin alfombras, Interruptores a la altura adecuada, Ventanas bajas (1,20 mts al suelo).
-» Baños: Puerta: tamaño y apertura hacia el exterior, Suelo antideslizante, espacio libre, Barras de apoyo antideslizantes, Lavamanos sin pedestal ni mobiliario inferior, Grifería tipo palanca o presión, Espejo a 1 mt del suelo y con inclinación, Inodoro a 50 cm del nivel del suelo, Ducha, Asiento fijo y abatible o movible, Libre de obstáculos para entrar a la ducha.
-» Sala de internet accesible: Espacio amplio.
-» Varios: Teléfonos accesibles.
-» Observaciones/Otros: Las plataformas se encuentran pedidas, Menú adaptado con previo aviso. Teléfonos de emergencia en baños adaptados.
-*/
-
-piklist (
-    'field',
+piklist(
+    'field', 
     array(
-        'type' => 'number',
-        'scope' => 'post_meta',
-        'field' => 'imgd_programa_ano',
-        'label' => __('Año', 'imgd'),
-        'value' => 2016,
-        'attributes' => array(
-            'class' => 'text'
-        ),
-        'position' => 'wrap'
+        'type' => 'text'
+        ,'field' => 'imgd_dir_rampa_desc'
+        ,'description' => __('Descripción de la Rampa', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_rampa'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
     )
 );
 
-piklist (
-    'field',
+
+  piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_hallingreso',
+    'label' => __('Hall de ingreso accesible','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+
+piklist(
+    'field', 
     array(
-        'type' => 'text',
-        'scope' => 'post_meta',
-        'field' => 'imgd_programa_director',
-        'label' => __('Director', 'imgd'),
-        'value' => 'Carlos Snaimon',
-        'attributes' => array(
-            'class' => 'text'
-        ),
-        'position' => 'wrap'
+        'type' => 'text'
+        ,'field' => 'imgd_dir_hallingreso_desc'
+        ,'description' => __('Descripción del Hall del Ingreso', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_hallingreso'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
     )
 );
 
-piklist (
-    'field',
+
+piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_mostradores',
+    'label' => __('Mostradores','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+
+  piklist(
+    'field', 
     array(
-        'type' => 'text',
-        'scope' => 'post_meta',
-        'field' => 'imgd_programa_produccion',
-        'label' => __('Producción', 'imgd'),
-        'value' => 'Filmarte',
-        'attributes' => array(
-            'class' => 'text'
-        ),
-        'position' => 'wrap'
+        'type' => 'text'
+        ,'field' => 'imgd_dir_mostradores_desc'
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_mostradores'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
+piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_escaleras',
+    'label' => __('Escaleras','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_escaleras_desc'
+        ,'description' => __('Descripción de la Escalera', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_escaleras'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
+piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_espacios',
+    'label' => __('Espacios Comunes','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+
+  piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_espacios_desc'
+        ,'description' => __('Descripción de los Espacios Comunes', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_espacios'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
+piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_sanitarios',
+    'label' => __('Sanitarios Públicos','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+
+  piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_sanitarios_desc'
+        ,'description' => __('Descripción de los Sanitarios Públicos', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_sanitarios'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
+piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_ascensores',
+    'label' => __('Ascensores','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+
+  piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_ascensores_desc'
+        ,'description' => __('Descripción de los Sanitarios Públicos', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_ascensores'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
+piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_pasillos',
+    'label' => __('Pasillos','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+
+  piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_pasillos_desc'
+        ,'description' => __('Descripción de los Pasillos', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_pasillos'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
+piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_banos',
+    'label' => __('Baños Accesibles','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+
+  piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_banos_desc'
+        ,'description' => __('Descripción de los Baños Accesibles', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_banos'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
+piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_internet',
+    'label' => __('Sala de Internet','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+
+  piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_internet_desc'
+        ,'description' => __('Descripción de la Sala de Internet', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_internet'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
+piklist('field', array(
+    'type' => 'radio',
+    'field' => 'imgd_dir_varios',
+    'label' => __('Extras','imgd'),
+    'value' => 0, // set default value
+    'choices' => array(
+      0 => __('No', 'imgd')
+      ,1 => __('Si', 'imgd')
+    )
+  ));
+
+  piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_extras_desc'
+        ,'description' => __('Varios', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Descripción', 'imgd')
+        , 'conditions' => array(
+                    array(
+                    'field' => 'imgd_dir_extras'
+                    , 'value' => 1
+                )
+            )
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
+    )
+);
+
+piklist(
+    'field', 
+    array(
+        'type' => 'text'
+        ,'field' => 'imgd_dir_observaciones'
+        ,'description' => __('Todo lo que no se pudo agregar en loas campos Anteriores', 'imgd')
+        ,'value' => ''
+        ,'label' => __('Observaciones', 'imgd')
+        ,'attributes' => array(
+                'class' => 'regular-text'
+        )
     )
 );
